@@ -1,0 +1,43 @@
+<app-header></app-header>
+<div class="cart_main">
+    <div class="container">
+
+      <div class="cart-items">
+        <h2>Past Orders ({{pastordercount}})</h2>
+         <script>$(document).ready(function(c) {
+           $('.close1').on('click', function(c){
+             $('.cart-header').fadeOut('slow', function(c){
+               $('.cart-header').remove();
+             });
+             });
+           });
+          </script>
+        <div class="cart-header" *ngFor="let item of arrorder,let i=index">
+
+          <div class="cart-sec">
+              <div class="cart-item-info">
+
+                <h3>Price:{{item.orderTotalPrice|currency:'INR'}}</h3>
+                <h3>Quantity:{{item.orderTotalQty}}</h3>
+                <h3>Order Date:{{item.orderDate|date :'fullDate'}}</h3>
+                <button (click)="onclick(item.orderId)">More Detail</button>
+
+
+              </div>
+              <div class="clearfix"></div>
+           </div>
+        </div>
+        <script>$(document).ready(function(c) {
+           $('.close2').on('click', function(c){
+               $('.cart-header2').fadeOut('slow', function(c){
+             $('.cart-header2').remove();
+           });
+           });
+           });
+        </script>
+
+      </div>
+
+    </div>
+ </div>
+<app-footer></app-footer>

@@ -1,0 +1,7 @@
+li
+{
+  cursor: pointer;
+}
+.navbutton:active { background-color: red;
+}
+

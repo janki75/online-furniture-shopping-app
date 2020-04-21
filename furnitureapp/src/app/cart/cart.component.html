@@ -1,0 +1,80 @@
+<div class="cart_main">
+    <div class="container">
+
+      <div class="cart-items">
+        <h2>My Shopping Bag ({{cartitemcount}})</h2>
+        <button mat-raised-button style="background-color: #D8D8D8;margin-left:1050px" (click)="onback()" >Back<mat-icon>keyboard_backspace</mat-icon></button>
+         <script>$(document).ready(function(c) {
+           $('.close1').on('click', function(c){
+             $('.cart-header').fadeOut('slow', function(c){
+               $('.cart-header').remove();
+             });
+             });
+           });
+          </script>
+        <div class="cart-header" *ngFor="let item of arrcart,let i=index">
+          <div (click)="ondeletecartitem(item.cartId,i)" class="close1"> </div>
+          <div class="cart-sec">
+             <div class="cart-item cyc">
+                <img src="http://localhost:3000/images/furniture_images/{{item.fkFurnitureImg}}"/>
+             </div>
+              <div class="cart-item-info">
+                <h3>Name:{{item.fkFurnitureName}}</h3>
+
+
+                    <h3>Selling Price:{{item.fkFurniturePrice|currency:'INR'}}</h3>
+
+
+
+
+                <h3>Quantity:{{item.cartQuantity}}</h3>
+                <h3>Total:{{item.cartAmount|currency:'INR'}}</h3>
+
+
+              </div>
+              <div class="clearfix"></div>
+           </div>
+        </div>
+        <script>$(document).ready(function(c) {
+           $('.close2').on('click', function(c){
+               $('.cart-header2').fadeOut('slow', function(c){
+             $('.cart-header2').remove();
+           });
+           });
+           });
+        </script>
+
+      </div>
+
+      <div class="cart-total">
+
+        <div class="price-details">
+          <h2 align="center"><u>Price Details</u></h2>
+          <span>Total</span>
+          <span class="total">{{total |currency:'INR'}}</span>
+          <span>Gst-12%</span>
+
+        <span>  <p> {{total*0.12 |currency:'INR'}}</p></span>
+          <div class="clearfix"></div>
+        </div>
+        <h4 class="last-price">TOTAL</h4>
+        <span class="total final">{{total+(total*0.12)|currency:'INR'}}</span>
+        <div class="clearfix"></div>
+        <button style="background-color:#09727B" mat-raised-button color="primary"  (click)="oncheckout()" class="form-control">CheckOut</button>
+
+       </div>
+    </div>
+ </div>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+<app-footer></app-footer>

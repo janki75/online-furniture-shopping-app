@@ -1,0 +1,131 @@
+ <body style="color: white">
+  <form data-toggle="validator" role="form">
+<div class="container" style="margin-left:600px">
+  <div class="row">
+    <div class="col-md-5">
+      <h2 align="center">Welcome!!</h2>
+
+
+
+      <label class="label control-label">Email Id</label>
+      <div class="input-group">
+        <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+
+        <input  #emailId1="ngModel" name="email" [(ngModel)]="userEmailId" type="email" name="uemail" class="form-control" id="inputEmail" placeholder="Email" data-error="Bruh, that email address is invalid" required>
+  <div class="help-block with-errors"></div>
+      </div>
+      <div [hidden]="emailId1.valid || emailId1.untouched" >
+        <div style="color:red" [hidden]="!emailId1.errors?.email" >
+        Email is invalid
+        </div>
+
+        <div  style="color: red" [hidden]="!emailId1.errors?.required" >
+            Email is required
+            </div>
+        </div>
+
+
+
+
+
+      <label class="label control-label">Password</label>
+      <div class="input-group">
+        <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+        <mat-icon style="color: white" matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        <input  #password1="ngModel"  name="password1" [type]="hide ? 'password' : 'text'" required minlength="8" [(ngModel)]="userPassword" name="upassword" type="password" class="form-control" placeholder="Password">
+      </div>
+      <div [hidden]="password1.valid || password1.untouched" >
+        <div  style="color: red" [hidden]="!password1.errors?.minlength" >
+            password must be of 8 characters
+        </div>
+
+        <div  style="color: red" [hidden]="!password1.errors?.required">
+            password is required
+            </div>
+        </div>
+
+
+
+
+      <label class="label control-label">User Name</label>
+      <div class="input-group">
+        <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+        <input #username1="ngModel" required [(ngModel)]="userName" name="uname" type="text" class="form-control" placeholder="User Name">
+      </div>
+      <div [hidden]="username1.valid || username1.untouched" >
+        <div  style="color: red" [hidden]="!username1.errors?.required" >
+            please enter user name
+        </div>
+</div>
+
+
+
+
+      <label class="label control-label">Mobile No</label>
+      <div class="input-group">
+        <span class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></span>
+        <input maxlength="10" #userMobileNo1="ngModel" required [(ngModel)]="userMobileNo" name="umobileno" type="text" pattern="[0-9] {13}" class="form-control" placeholder="Mobile No">
+      </div>
+      <div [hidden]="userMobileNo1.valid || userMobileNo1.untouched" >
+        <div  style="color: red" [hidden]="!userMobileNo1.errors?.required" >
+          please enter mobile no
+        </div>
+</div>
+
+
+
+
+
+
+      <label class="label control-label">City</label>&nbsp;&nbsp;
+        <select class="city" [(ngModel)]="userCity" name="ucity">
+          <option *ngFor="let item of arrcity">{{item}}</option>
+        </select><br>
+
+
+
+<label class="label control-label">Gender</label><br>
+<input required checked [(ngModel)]="userGender" type="radio" name="r1" value="female">{{arrgender[0]}}<br>
+<input required [(ngModel)]="userGender" type="radio" name="r1" value="male">{{arrgender[1]}}
+
+
+<br>
+
+
+
+
+      <div class="input-group">
+        <span class="input-group-addon"><span class="glyphicon glyphicon-home"></span></span>
+        <textarea #userAddress1="ngModel" required [(ngModel)]="userAddress" name="uaddress" class="form-control" placeholder="User Address"></textarea>
+      </div>
+      <div [hidden]="userAddress1.valid || userAddress1.untouched" >
+        <div  style="color: red" [hidden]="!userAddress1.errors?.required" >
+          please enter address details
+        </div>
+</div>
+
+ <label class="label control-label">Image</label><br>
+      <div >
+          <input placeholder="Enter Image" type="file" (change)="onfileUploadChange($event)" class="form-control" >
+      </div>
+
+      <!-- make 2 col -->
+
+
+      <!-- close -->
+
+    <div>
+        <button style="margin-left: 130px" (click)="onadduser()" class="form-control">Sign up</button>&nbsp;&nbsp;&nbsp;&nbsp;
+    <button (click)="onclickcancel()" class="form-control">Cancel</button>
+  </div>
+
+
+    </div>
+  </div>
+
+</div>
+</form>
+</body>
+
+
+

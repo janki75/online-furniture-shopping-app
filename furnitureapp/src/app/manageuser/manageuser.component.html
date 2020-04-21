@@ -1,0 +1,70 @@
+<h1 align="center">User Management</h1>
+
+<div align="end">
+    <button mat-raised-button color="primary" (click)="onuseradd()" >Add User<mat-icon>add</mat-icon></button>
+</div>
+
+<mat-form-field>
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+</mat-form-field>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort multiTemplateDataRows>
+
+
+  <ng-container matColumnDef="action1">
+    <th mat-header-cell *matHeaderCellDef> DELETE </th>
+    <td mat-cell *matCellDef="let element">
+       <mat-checkbox (change)="onuserdeletecheckChange(element)" name="c1"></mat-checkbox> </td>
+
+
+  </ng-container>
+
+  <ng-container matColumnDef="userEmailId">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header> User Email Id</th>
+    <td mat-cell *matCellDef="let element"> {{element.userEmailId}} </td>
+  </ng-container>
+  <ng-container matColumnDef="userName">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header> User Name</th>
+    <td mat-cell *matCellDef="let element">{{element.userName}} </td>
+  </ng-container>
+    <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef> Update &nbsp;&nbsp;&nbsp;Delete   </th>
+
+    <td mat-cell *matCellDef="let element">
+
+      <button>
+          <mat-icon (click)="onupdateuserdetail(element) ">create</mat-icon></button>&nbsp;&nbsp;&nbsp;
+          <button>    <mat-icon  (click)="singleuserdelete(element) ">delete</mat-icon></button>
+       </td>
+
+  </ng-container>
+  <ng-container matColumnDef="expandedDetail">
+    <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length">
+      <div class="example-element-detail"
+           [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'" style="overflow: hidden">
+           <div class="example-element-furnitureImg">
+              <img height="190" width="190" src="http://localhost:3000/images/user_images/{{element.userPhoto}}" alt="image loading...">
+           </div> &nbsp;&nbsp;&nbsp;
+        <div style="margin-top: 10px;margin-left:5px" class="example-element-furnitureSize">
+      User MobileNo:&nbsp;{{element.userMobileNo}}
+          <br><br>
+          User Gender:{{element.userGender}}<br><br>
+          User City:{{element.userCity}}<br><br>
+          User Address:{{element.userAddress}}<br><br>
+         </div>
+      </div>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let element; columns: displayedColumns;"
+      class="example-element-row"
+      [class.example-expanded-row]="expandedElement === element"
+      (click)="expandedElement =expandedElement=== element ? null : element" class="pointer">
+  </tr>
+  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+
+</table>
+<mat-paginator [pageSizeOptions]="[1,2,dataSource.data.length]"></mat-paginator>
+
+<button mat-raised-button color="warn" (click)="deleteselectedUser()">DeleteAll<mat-icon>delete</mat-icon></button>

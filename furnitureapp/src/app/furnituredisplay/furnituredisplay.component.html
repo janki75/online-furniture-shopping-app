@@ -1,0 +1,107 @@
+
+<div class="top_bg">
+    <div class="container">
+      <div class="header_top-sec">
+
+        <div class="top_left">
+          <ul>
+            <li class="top_link">Email: www.opulence.in.net
+            </li>|
+            <li class="top_link"><a (click)="onclickmyac()">My Account</a></li>|
+            <li class="top_link"><a (click)="onclickcontact()">Contact Us</a></li>
+          </ul>
+                </div>
+          <div class="clearfix"> </div>
+      </div>
+    </div>
+  </div>
+  <div class="header_top">
+     <div class="container">
+       <div class="logo">
+         <a><img style="margin-top:-28px" src="http://localhost:3000/images/furniture_images/logo1.jpg" alt=""/></a>
+       </div>
+       <div class="header_right">
+         <div class="login">
+
+
+         </div>
+         <div class="cart box_1">
+  <button (click)="onclickcart()" mat-button><mat-icon>shopping_cart</mat-icon>Show Cart</button>
+
+  <button (click)="onlogout()" mat-button><mat-icon>logout</mat-icon>Log Out</button>
+          <div class="clearfix"> </div>
+         </div>
+       </div>
+        <div class="clearfix"></div>
+     </div>
+  </div>
+
+   <div class="mega_nav">
+     <div class="container">
+       <div class="menu_sec">
+
+        <button (click)="onclicksubcat(item.categoryId)" mat-button [matMenuTriggerFor]="menu" *ngFor="let item of arrcat">{{item.categoryName}}</button>
+        <mat-menu #menu="matMenu">
+          <button (click)="onclick(item.subCatId)" *ngFor="let item of arrsubcat" mat-menu-item>{{item.subCatName}}</button>
+        </mat-menu>
+         <div class="clearfix"></div>
+       </div>
+      </div>
+  </div>
+
+
+  <!-- header complete here -->
+
+
+
+  <!-- side menu starts -->
+  <div class="container">
+  <div class="rsidebar span_1_of_left">
+      <section  class="sky-form">
+          <div class="product_right">
+              <div class="tab1" *ngFor="let item of arrcat" (click)="onclickheader(item.categoryId)">
+                  <ul class="place">
+                    <li class="sort">{{item.categoryName}}</li>
+                    <li class="by"><img src="assets/images/do.png" alt=""></li>
+                     <div class="clearfix"> </div>
+                   </ul>
+                   </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- side menu ends -->
+
+
+		 <div class="col-md-9 product-model-sec">
+  <a *ngFor="let item of arrfurniture">
+    <div class="product-grid love-grid" >
+      <div class="more-product"><span> </span></div>
+      <div class="product-img b-link-stripe b-animate-go  thickbox">
+        <img src="http://localhost:3000/images/furniture_images/{{item.furnitureImg}}" class="img-responsive" alt=""/>
+        <div class="b-wrapper">
+        <h4 class="b-animate b-from-left  b-delay03">
+        <button (click)="onclickquickview(item.furnitureId)" class="btns"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</button>
+        </h4>
+        </div>
+      </div>
+
+      <div class="product-info simpleCart_shelfItem">
+        <div class="product-info-cust prt_name">
+          <h4>{{item.furnitureName}}</h4>
+      <span class="item_price">{{item.furniturePrice|currency:'INR'}}</span><br>
+         <input (click)="onfurnitureDetail(item.furnitureId)" type="button" class="item_add items" value="Detail">
+        </div>
+        <div class="clearfix"> </div>
+      </div>
+    </div>
+  </a>
+</div>
+</div>
+
+
+
+
+
+
+<app-footer></app-footer>

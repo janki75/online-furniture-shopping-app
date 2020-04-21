@@ -1,0 +1,23 @@
+<h1 align="center">Add Category</h1>
+<form style="margin-left: 500px;margin-top: 50px" (ngSubmit)="addForm(f)" #f="ngForm"
+class="example-form" align="center">
+  <mat-form-field class="example-full-width">
+    <input [(ngModel)]="categoryName"
+    required
+    id="categoryName"
+     #categoryName1="ngModel"
+    matInput placeholder="Category Name" name="categoryName">
+  </mat-form-field>
+  <div [hidden]="categoryName1.valid || categoryName1.untouched" >
+      <div [hidden]="!categoryName1.errors?.required" class="alert alert-danger">
+          Category Name is required.
+          </div>
+        </div>
+  <br>
+
+  <div class="form-group">
+    <button mat-raised-button color="primary" type="submit" (click)="onadd()" [disabled]="!f.valid" class="form-control">Add</button>&nbsp;&nbsp;&nbsp;
+    <button mat-raised-button color="warn" (click)="oncancel()" class="form-control">Cancel</button>
+</div>
+
+</form>

@@ -1,0 +1,43 @@
+<app-header></app-header>
+<mat-card class="example-card" style="margin-left:426px ">
+    <mat-card-header>
+      <mat-card-title style="margin-left: 60px"><h2><u>Order Summary</u></h2></mat-card-title>
+    </mat-card-header>
+    <mat-card-content style="margin-left: 60px">
+      <form class="example-form">
+        <table class="example-full-width" cellspacing="0">
+
+          <label>
+          <b>Order Id:-{{orderId}}</b>
+          </label><br>
+
+          <label>
+              <b>Date:-{{orderDate|date :'fullDate'}}</b>
+              </label><br>
+
+          <label>
+              <b>Total Qty:-{{orderTotalQty}}</b>
+              </label><br>
+
+              <div class="price-details">
+                  <h4><b>Price Details</b></h4>
+                  <span>Total</span>
+                  <span class="total">{{orderTotalPrice |currency:'INR'}}</span>
+                  <span>Gst-12%</span>
+
+                <span>  <p> {{orderTotalPrice*0.12 |currency:'INR'}}</p></span>
+                  <div class="clearfix"></div>
+                </div>
+                <h4 class="last-price"><b>TOTAL</b></h4>
+                <span class="total final"><b>{{orderTotalPrice+(orderTotalPrice*0.12)|currency:'INR'}}</b></span>
+
+
+      </table>
+      </form>
+
+    </mat-card-content>
+    <mat-card-actions>
+      <button style="margin-left:80px" mat-raised-button (click)="ondone()" color="primary">Done</button>
+    </mat-card-actions>
+  </mat-card>
+<app-footer></app-footer>

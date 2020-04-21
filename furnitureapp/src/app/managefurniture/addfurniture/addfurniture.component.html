@@ -1,0 +1,171 @@
+<h1 style="margin-left:600px"><u><b>Add Furniture</b></u></h1>
+<form (ngSubmit)="addForm(f)" #f="ngForm"
+class="example-form" style="margin-left:450px">
+  <mat-form-field class="example-full-width">
+    <input [(ngModel)]="furnitureName"
+    required
+     id="furnitureName"
+     #furnitureName1="ngModel"
+     matInput placeholder="Furniture Name" name="furnitureName" >
+  </mat-form-field>
+  <div [hidden]="furnitureName1.valid || furnitureName1.untouched" >
+  <div [hidden]="!furnitureName1.errors?.required" class="alert alert-danger">
+      Furniture Name is required.
+      </div>
+    </div>
+  <br>
+
+
+
+
+  <mat-form-field class="example-full-width">
+      <input [(ngModel)]=" furniturePrice"
+      required
+      id="furniturePrice"
+      #furniturePrice1="ngModel"
+      matInput placeholder="Furniture price" name="furniturePrice">
+    </mat-form-field>
+    <div [hidden]="furniturePrice1.valid || furniturePrice1.untouched" >
+        <div [hidden]="!furniturePrice1.errors?.required" class="alert alert-danger">
+            Furniture Price is required.
+            </div>
+          </div>
+    <br>
+
+
+
+
+    <mat-form-field class="example-full-width">
+        <input [(ngModel)]="furnitureBrand"
+        required
+        id="furnitureBrand"
+        #furnitureBrand1="ngModel"
+        matInput placeholder="Furniture Brand" name="furnitureBrand">
+      </mat-form-field>
+      <div [hidden]="furnitureBrand1.valid || furnitureBrand1.untouched" >
+          <div [hidden]="!furnitureBrand1.errors?.required" class="alert alert-danger">
+              Furniture Brand is required.
+              </div>
+            </div>
+      <br>
+
+
+
+      <mat-form-field class="example-full-width">
+          <input [(ngModel)]="furnitureSize"
+          required
+          id="furnitureSize"
+          #furnitureSize1="ngModel"
+          matInput placeholder="Furniture Size" name="furnitureSize">
+        </mat-form-field>
+        <div [hidden]="furnitureSize1.valid || furnitureSize1.untouched" >
+            <div [hidden]="!furnitureSize1.errors?.required" class="alert alert-danger">
+                Furniture Size is required.
+                </div>
+              </div>
+        <br>
+
+
+
+        <mat-form-field class="example-full-width">
+          <mat-select (selectionChange)="onSubCatChange()" placeholder="Category Name" name="sel" [(ngModel)]="fkCategoryId">
+              <mat-option *ngFor="let item of arrcat" [value]="item.categoryId">
+                {{item.categoryName}}
+              </mat-option>
+            </mat-select> </mat-form-field>
+
+
+
+
+                <label>Available on Rent?</label><br>
+          <mat-radio-group #rentflag1="ngModel" id="rentflag"  required class="example-radio-group" [(ngModel)]="rentFlag" name="RentFlag">
+            <mat-radio-button class="example-radio-button" *ngFor="let item of arroptions" [value]="item.value">
+              {{item.label}}
+            </mat-radio-button>
+          </mat-radio-group>
+          <div [hidden]="rentflag1.valid || rentflag1.untouched" >
+              <div [hidden]="!rentflag1.errors?.required" class="alert alert-danger">
+                  Please select rent option
+                  </div>
+                </div>
+
+
+
+
+          <div *ngIf="rentFlag">
+        <mat-form-field  class="example-full-width">
+          <input  [(ngModel)]="rentAmount"
+          required
+          id="rentAmount"
+          #rentAmount1="ngModel"
+          matInput placeholder="Rent Amount" name="rentAmount">
+        </mat-form-field>
+        <div [hidden]="rentAmount1.valid || rentAmount1.untouched" >
+          <div [hidden]="!rentAmount1.errors?.required" class="alert alert-danger">
+              Rent Amount is required.
+              </div>
+            </div>
+            </div>
+
+
+
+            <div *ngIf="rentFlag">
+            <mat-form-field class="example-full-width">
+              <input [(ngModel)]="rentDescription"
+              required
+              id="rentDescription"
+              #rentDescription1="ngModel"
+              matInput placeholder="Rent Description" name="rentDescription">
+            </mat-form-field>
+            <div [hidden]="rentDescription1.valid || rentDescription1.untouched" >
+              <div [hidden]="!rentDescription1.errors?.required" class="alert alert-danger">
+                  Rent Description is required.
+                  </div>
+                </div>
+                </div>
+
+
+
+
+                <mat-form-field class="example-full-width">
+                  <input [(ngModel)]="furnitureDescription"
+                  required
+              id="furnitureDescription"
+                  #furnitureDescription1="ngModel"
+                  matInput placeholder="Furniture Description" name="furnitureDescription">
+                </mat-form-field>
+                <div [hidden]="furnitureDescription1.valid || furnitureDescription1.untouched" >
+                  <div [hidden]="!furnitureDescription1.errors?.required" class="alert alert-danger">
+                    Furniture Description is required
+                      </div>
+                    </div>
+
+
+                    <mat-form-field class="example-full-width">
+                      <mat-select  placeholder="Furniture Rating out of 5" name="selec" [(ngModel)]="furnitureRating">
+                          <mat-option *ngFor="let item of arrrating" [value]="item.value">
+                            {{item.label}}
+                          </mat-option>
+                        </mat-select> </mat-form-field>
+
+
+
+
+
+                            <mat-form-field class="example-full-width">
+                              <mat-select placeholder="Sub Category Name" name="sele" [(ngModel)]="fkSubCatId">
+                                  <mat-option *ngFor="let item of arrsubcat" [value]="item.subCatId">
+                                    {{item.subCatName}}
+                                  </mat-option>
+                                </mat-select> </mat-form-field>
+          <div class="form-group">
+        <h4>Choose Image</h4><br><input class="form-control" placeholder="Enter Image" type="file" (change)="onChange($event)">
+      </div>
+
+&nbsp;&nbsp;&nbsp;
+      <div class="form-group">
+          <button style="margin-left:60px" mat-raised-button color="primary" type="submit" (click)="onadd()" [disabled]="!f.valid" class="form-control">Add</button>&nbsp;&nbsp;&nbsp;
+          <button mat-raised-button color="warn" (click)="oncancel()" class="form-control">Cancel</button>
+      </div>
+
+    </form>

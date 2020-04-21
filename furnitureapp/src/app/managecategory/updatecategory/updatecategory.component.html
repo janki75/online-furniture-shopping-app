@@ -1,0 +1,17 @@
+<h1 align="center">Update Category</h1>
+<form style="margin-left: 500px;margin-top: 50px" class="example-form" align="center">
+
+  <mat-form-field class="example-full-width">
+    <input [(ngModel)]="categoryName" matInput placeholder="Category Name" name="categoryName">
+  </mat-form-field>
+  <br>
+
+  <div class="form-group">
+  <button mat-raised-button color="primary" (click)="onupdate()" class="form-control">Update
+    <mat-icon>save_alt</mat-icon>
+  </button>&nbsp;&nbsp;&nbsp;
+  <button mat-raised-button color="warn" (click)="oncancel()" class="form-control">Cancel
+    <mat-icon>cancel</mat-icon>
+  </button>
+</div>
+</form>

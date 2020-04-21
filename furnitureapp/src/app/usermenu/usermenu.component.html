@@ -1,0 +1,27 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    style="padding-right: 0;padding-left: 0;position: fixed;"
+    class="sidenav"
+    fixedInViewport="true"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="!(isHandset$ | async)">
+    <div class="row" style="padding-left: 10px;">
+    <mat-toolbar style="background-color:rgba(2, 100, 102, 2.83);color: white;height: 48px">Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="../usermenu">Home</a>
+      <a mat-list-item routerLink="viewprofile">My Profile</a>
+      <a mat-list-item routerLink="changepassword">Change Password</a>
+      <a mat-list-item routerLink="viewadvertise">View Advertise</a>
+      <a mat-list-item routerLink="myadvertise">My Advertise</a>
+      <a mat-list-item routerLink="placeadvertiseform">Post Free Ad</a>
+      <a mat-list-item routerLink="pastorders">My Past Orders</a>
+      <a mat-list-item routerLink="furnitureonrent">Furniture On Rent</a>
+      <a mat-list-item routerLink="faq">FAQ</a>
+      <a (click)="onlogout()" mat-list-item routerLink="logout">Log out</a>
+    </mat-nav-list>
+  </div>
+  </mat-sidenav>
+    <!-- Add Content Here -->
+    <router-outlet></router-outlet>

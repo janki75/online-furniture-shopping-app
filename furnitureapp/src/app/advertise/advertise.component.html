@@ -1,0 +1,55 @@
+<h1 align="center">Advertise Management</h1>
+<div align="end">
+  <button mat-raised-button color="primary" (click)="onAdd()">Add Advertise<mat-icon>add</mat-icon></button>
+</div>
+
+
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort multiTemplateDataRows>
+
+
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let element">
+
+        <mat-checkbox (change)="onDelchange(element)" name="c1"></mat-checkbox>
+      </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="furnitureAdvAmount">
+      <mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header>Advertise Amount </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.furnitureAdvAmount}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="userName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header> Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.userName}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="categoryName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header>Category Name</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.categoryName}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="update">
+      <th mat-header-cell *matHeaderCellDef>Update &nbsp;&nbsp;&nbsp; Delete</th>
+      <td mat-cell *matCellDef="let element">
+
+        <button ><mat-icon (click)="onupdate(element)">create</mat-icon></button>&nbsp;&nbsp;&nbsp;
+        <button ><mat-icon (click)="onSingleDelete(element)">delete</mat-icon></button>
+
+      </td>
+    </ng-container>
+
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+</table>
+<mat-paginator [pageSizeOptions]="[2,3,dataSource.data.length]"></mat-paginator>
+<button mat-raised-button color="warn" (click)="onAllDelete()">DeleteAll<mat-icon>delete</mat-icon></button>
+
+

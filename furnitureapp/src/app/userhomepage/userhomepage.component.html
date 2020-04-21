@@ -1,0 +1,90 @@
+
+<app-header></app-header>
+<!---->
+<div class="content">
+	 <div class="container">
+		 <div class="slider">
+				<ul class="rslides" id="slider1">
+				  <li><img  src="http://localhost:3000/images/furniture_images/s22.jpg" alt=""></li>
+
+          <li><img src="http://localhost:3000/images/furniture_images/d1.jpg" alt=""></li>
+          <li><img src="http://localhost:3000/images/furniture_images/ss2.jpg" alt=""></li>
+				</ul>
+		 </div>
+	 </div>
+</div>
+<!---->
+<div class="bottom_content">
+    <div class="container">
+      <div class="sofas">
+        <div class="col-md-6 sofa-grid" (click)="onclickwardrobes(1)">
+          <img src="http://localhost:3000/images/furniture_images/wrd11.jpg" alt=""/>
+          <h3>IMPORTED STYLIST WARDROBES</h3>
+          <h4><a (click)="onclickwardrobes(1)">WARDROBES</a></h4>
+        </div>
+        <div class="col-md-6 sofa-grid sofs" (click)="onclickBeds(3)">
+          <img src="http://localhost:3000/images/furniture_images/bd2.jpg" alt=""/>
+          <h3>SPECIAL COMFORTABLE BEDS</h3>
+          <h4><a (click)="onclickBeds(3)">BEDS</a></h4>
+        </div>
+        <div class="col-md-6 sofa-grid" (click)="onclickDiningSets(5)">
+            <img src="http://localhost:3000/images/furniture_images/dt44.jpg" alt=""/>
+            <h3>IMPORTED DINING SETS</h3>
+            <h4><a (click)="onclickBeds(5)">IMPORTED DINING SETS</a></h4>
+          </div>
+          <div class="col-md-6 sofa-grid" (click)="onclickSofaAndLounges(7)">
+            <img src="http://localhost:3000/images/furniture_images/s22.jpeg" alt=""/>
+            <h3>IMPORTED SOFA AND LOUNGES</h3>
+            <h4><a (click)="onclickBeds(7)">IMPORTED SOFA AND LOUNGES</a></h4>
+          </div>
+
+          <div class="col-md-6 sofa-grid" (click)="onclickStudyTables(9)">
+              <img src="http://localhost:3000/images/furniture_images/st22.jpg" alt=""/>
+              <h3>IMPORTED STUDY TABLES</h3>
+              <h4><a (click)="onclickBeds(9)">STUDY TABLES</a></h4>
+            </div>
+
+            <div class="col-md-6 sofa-grid" (click)="onclickDecorPieces(11)">
+                <img src="http://localhost:3000/images/furniture_images/dc11.jpg" alt=""/>
+                <h3>IMPORTED DECOR PIECES</h3>
+                <h4><a (click)="onclickBeds(11)">DECOR PIECES</a></h4>
+              </div>
+              <div class="col-md-6 sofa-grid" (click)="onclickChairsAndStools(13)">
+                  <img src="http://localhost:3000/images/furniture_images/cs33.jpg" alt=""/>
+                  <h3>IMPORTED CHAIRS AND STOOLS</h3>
+                  <h4><a (click)="onclickBeds(13)">CHAIRS AND STOOLS</a></h4>
+                </div>
+                <div class="col-md-6 sofa-grid" (click)="onclickKitchenAppliances(15)">
+                    <img src="http://localhost:3000/images/furniture_images/kitchenmain.jpg" alt=""/>
+                    <h3>IMPORTED KITCHEN APPLIANCES</h3>
+                    <h4><a (click)="onclickBeds(15)">KITCHEN APPLINCES</a></h4>
+                  </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+ </div>
+
+<!---->
+<div class="top-sellers">
+	 <div class="container">
+		 <h3>TOP - Selling Furnitures</h3>
+		 <div class="seller-grids">
+
+
+
+      <div class="col-md-3 seller-grid" *ngFor="let item of arrtopfour">
+				 <a><img src="http://localhost:3000/images/furniture_images/{{item.furnitureImg}}" alt=""/></a>
+				 <h4><a>{{item.furnitureName}}</a></h4>
+
+         <p>{{item.furniturePrice|currency:'INR'}}</p>
+         <input (click)="onfurnitureDetail(item.furnitureId)" type="button" class="item_add items" value="Detail">
+			 </div>
+
+
+
+			 <div class="clearfix"></div>
+		 </div>
+	 </div>
+</div>
+<!---->
+   <app-footer></app-footer>

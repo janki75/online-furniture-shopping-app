@@ -1,0 +1,71 @@
+<h1 align="center"> Add Advertisement</h1>
+<form style="margin-left: 550px" class="example-form" (ngSubmit)="addForm(f)" #f="ngForm">
+    <mat-form-field class="example-full-width">
+    <input matInput placeholder="Enter Furniture Advertise Amount" required #advAmount1="ngModel" id="advAmount" name="advAmount" [(ngModel)]="furnitureAdvAmount">
+  </mat-form-field>
+  <div [hidden]="advAmount1.valid || advAmount1.untouched" >
+    <mat-error *ngIf="advAmount1.hasError('required')">
+        Furniture Amount is<strong>required</strong>
+      </mat-error>
+
+      </div><br>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Enter Furniture Used Time" required #advUsedTime1="ngModel" id="advUsedTime" name="advUsedTime" [(ngModel)]="furnitureAdvUsedTime">
+  </mat-form-field>
+  <div [hidden]="advUsedTime1.valid || advUsedTime1.untouched" >
+    <mat-error *ngIf="advUsedTime1.hasError('required')">
+      Furniture Used Time is <strong>required</strong>
+    </mat-error>
+
+    </div><br>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Enter Furniture Size" required #advSize1="ngModel" id="advSize" name="advSize" [(ngModel)]="furnitureAdvSize">
+  </mat-form-field>
+  <div [hidden]="advSize1.valid || advSize1.untouched" >
+    <mat-error *ngIf="advSize1.hasError('required')">
+        <strong>Furniture Size is required</strong>
+     </mat-error>
+    </div><br>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Enter Furniture Brand" required #advBrand1="ngModel" id="advBrand" name="advBrand" [(ngModel)]="furnitureAdvBrand">
+  </mat-form-field>
+  <div [hidden]="advBrand1.valid || advBrand1.untouched" >
+    <mat-error *ngIf="advBrand1.hasError('required')">
+        <strong>Furniture Brand is required</strong>
+     </mat-error>
+    </div><br>
+  <div class="form-group">
+    <label>Advertise Furniture Image</label>
+      <input type="file" (change)="onChange($event)" class="form-control" >
+    </div>
+
+
+
+
+    <mat-form-field class="example-full-width">
+        <mat-select placeholder="Furniture Condition" name="sele" [(ngModel)]="furnitureAdvCondition">
+            <mat-option [value]="item" *ngFor="let item of arrfurniturecondition">
+              {{item}}
+            </mat-option>
+          </mat-select> </mat-form-field><br>
+
+      <br>
+
+
+
+
+<mat-form-field class="example-full-width">
+  <mat-select placeholder="Furniture Category" name="sel" [(ngModel)]="advFkCategoryId">
+    <mat-option *ngFor="let item of arrcat" [value]="item.categoryId">
+      {{ item.categoryName }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<div class="form-group">
+  <button  mat-raised-button color="primary" type="submit" [disabled]="!f.valid" (click)="onadd()" class="form-control">Add</button>&nbsp;&nbsp;&nbsp;
+  <button  mat-raised-button color="warn" (click)="oncancel()" class="form-control">Cancel</button>
+</div>
+
+</form>
+

@@ -1,0 +1,144 @@
+<app-header></app-header>
+<div class="single-bottom1">
+    <form style="border: medium solid red" class="example-form" style="margin-left: 430px;margin-top: 50px" (ngSubmit)="addForm(f)" #f="ngForm"
+   align="center">
+   <h3>Include Your Advertise Detail</h3>
+  <h6 style="margin-top:10px">Category Details</h6>
+
+  <p class="prod-desc"><b>Category:{{name}}</b></p>
+  <h6 style="margin-top: 1px">Ad Details</h6>
+  <img style="margin-left: 190px" height=100px width="100px" src="http://localhost:3000/images/furniture_images/addphoto.jpg" class="img-responsive" alt=""/>
+  <div class="form-group">
+      <h4>Choose Image</h4><br><input class="form-control" placeholder="Enter Image" type="file" (change)="onChange($event)">
+    </div>
+
+
+
+
+    <mat-form-field class="example-full-width">
+      <mat-select placeholder="Category Name" name="sel" [(ngModel)]="fkCategoryId">
+          <mat-option *ngFor="let item of arrcat" [value]="item.categoryId">
+            {{item.categoryName}}
+          </mat-option>
+        </mat-select> </mat-form-field>
+<br>
+
+
+        <mat-form-field class="example-full-width">
+    <input [(ngModel)]="furnitureBrand"
+    required
+    id="furnitureBrand"
+     #furnitureBrand1="ngModel"
+    matInput placeholder="furnitureBrand" name="furnitureBrand">
+  </mat-form-field>
+  <div [hidden]="furnitureBrand1.valid || furnitureBrand1.untouched" >
+      <div [hidden]="!furnitureBrand1.errors?.required" class="alert alert-danger">
+        Please Enter Brand Name
+          </div>
+        </div>
+  <br>
+
+
+  <mat-form-field class="example-full-width">
+    <input [(ngModel)]="furnitureSize"
+    required
+    id="furnitureSize"
+     #furnitureSize1="ngModel"
+    matInput placeholder="furnitureSize" name="furnitureSize">
+  </mat-form-field>
+  <div [hidden]="furnitureSize1.valid || furnitureSize1.untouched" >
+      <div [hidden]="!furnitureSize1.errors?.required" class="alert alert-danger">
+        Please Enter Furniture size
+          </div>
+        </div>
+  <br>
+
+  <mat-form-field class="example-full-width">
+    <mat-select placeholder="Furniture Condition" name="sele" [(ngModel)]="furnitureCondition">
+        <mat-option [value]="item" *ngFor="let item of arrfurniturecondition">
+          {{item}}
+        </mat-option>
+      </mat-select> </mat-form-field><br>
+
+
+      <mat-form-field class="example-full-width">
+          <input [(ngModel)]="furnitureUsedTime"
+          required
+          id="furnitureUsedTime"
+           #furnitureUsedTime1="ngModel"
+          matInput placeholder=" Furniture Used Time" name="furnitureUsedTime">
+        </mat-form-field>
+
+        <div [hidden]="furnitureUsedTime1.valid || furnitureUsedTime1.untouched" >
+            <div [hidden]="!furnitureUsedTime1.errors?.required" class="alert alert-danger">
+            Please Enter Furniture Used Time
+                </div>
+
+              </div>
+        <br>
+
+
+      <mat-form-field class="example-full-width">
+        <input [(ngModel)]="furniturePrice"
+        required
+        id="furniturePrice"
+         #furniturePrice1="ngModel"
+        matInput placeholder="furniture Price" name="furniturePrice1">
+      </mat-form-field>
+      <div [hidden]="furniturePrice1.valid || furniturePrice1.untouched" >
+          <div [hidden]="!furniturePrice1.errors?.required" class="alert alert-danger">
+          Please Enter Furniture Price
+              </div>
+            </div>
+      <br>
+      <mat-checkbox (change)="onFlagchange()">Price Not Negotiable</mat-checkbox><br>
+
+
+      <div *ngIf="flag">
+      <mat-form-field class="example-full-width">
+        <input [(ngModel)]="furnitureExpectedPrice"
+
+        id="furnitureExpectedPrice"
+         #furnitureExpectedPrice1="ngModel"
+        matInput placeholder="Minimum Expected Price" name="furnitureExpectedPrice">
+      </mat-form-field>
+      <span style="margin-left: -10px">Offers below this price will be blocked</span>
+
+              </div>
+      <br>
+     <h6 style="background-color: #D8D8D8;margin-top: -14px">Your Contact Information</h6>
+     <mat-form-field class="example-full-width">
+      <input [(ngModel)]="userEmailId"
+      required
+      id="furnitureExpectedPrice"
+       #userEmailId1="ngModel"
+      matInput placeholder="Email Id" name="userEmailId">
+    </mat-form-field>
+
+    <div [hidden]="userEmailId1.valid || userEmailId1.untouched" >
+        <div [hidden]="!userEmailId1.errors?.required" class="alert alert-danger">
+        Please Enter Email Id
+            </div>
+          </div>
+    <br>
+
+    <mat-form-field class="example-full-width">
+      <input required [(ngModel)]="userPhoneNo"
+      id="userPhoneNo"
+       #userPhoneNo1="ngModel"
+      matInput placeholder="Phone no" name="userPhoneNo">
+      <mat-icon matSuffix>phone</mat-icon>
+    </mat-form-field>
+<br>
+
+<mat-checkbox  [checked]=true [disabled]=true><a (click)="onclickterms()">Agree Terms And Conditions</a></mat-checkbox><br><br>
+
+
+<div class="form-group">
+  <button style="background-color: #FFFF00;color: black" mat-raised-button color="primary" type="submit" (click)="onpostad()" [disabled]="!f.valid" class="form-control">Post Your Ad</button>&nbsp;&nbsp;&nbsp;
+  <button mat-raised-button color="warn" (click)="oncancel()" class="form-control">Cancel</button>
+</div>
+
+</form>
+ </div>
+

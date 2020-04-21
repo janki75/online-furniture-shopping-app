@@ -1,0 +1,54 @@
+<h1 align="center">Order Detail</h1>
+<mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="fkFurnitureName" >
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Furniture Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.fkFurnitureName}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="fkFurniturePrice">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Furniture Price</th>
+      <td mat-cell *matCellDef="let element"> {{element.fkFurniturePrice}} </td>
+    </ng-container>
+    <ng-container matColumnDef="orderFurnitureQty">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Quantity</th>
+      <td mat-cell *matCellDef="let element"> {{element.orderFurnitureQty}} </td>
+    </ng-container>
+
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="orderDetailPrice">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Total Price</th>
+      <td mat-cell *matCellDef="let element"> {{element.orderDetailPrice}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="categoryName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> category</th>
+      <td mat-cell *matCellDef="let element"> {{element.categoryName}}</td>
+    </ng-container>
+    <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef>Update   </th>
+
+        <td mat-cell *matCellDef="let element">
+ <button><mat-icon color="primary" (click)="onupdateorderDetail(element) ">create</mat-icon></button>&nbsp;&nbsp;&nbsp;
+
+
+           </td>
+      </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+<br>
+<br>
+
+<button mat-raised-button color="primary" (click)="onback()" >Back<mat-icon>keyboard_backspace</mat-icon></button>

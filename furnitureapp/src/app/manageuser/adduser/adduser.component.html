@@ -1,0 +1,113 @@
+<h1 align="center"><u><b>Add User</b></u></h1>
+
+<form class="example-form" style="margin-left:520px" (ngSubmit)="addForm(f)" #f="ngForm">
+  <mat-form-field class="example-full-width">
+    <input required email matInput placeholder="Enter Email Id" #userEmailId1="ngModel"
+     id="userEmailId" name="userEmailId" [(ngModel)]="userEmailId">
+  </mat-form-field>
+  <div [hidden]="userEmailId1.valid || userEmailId1.untouched" >
+      <mat-error *ngIf="userEmailId1.hasError('required')">
+          Email is<strong>required</strong>
+        </mat-error>
+        <mat-error *ngIf="userEmailId1.hasError('email')">
+             <strong>Please Enter Valid Email</strong>
+          </mat-error>
+        </div><br>
+
+
+
+
+  <mat-form-field class="example-full-width">
+    <input [type]="hide ? 'password' : 'text'" matInput placeholder="Enter password" required #userPassword1="ngModel" minlength="8"
+     id="userPassword" name="userPassword" [(ngModel)]="userPassword">
+     <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+  </mat-form-field>
+  <div [hidden]="userPassword1.valid || userPassword1.untouched" >
+        <mat-error *ngIf="userPassword1.hasError('required')">
+          Password is <strong>required</strong>
+        </mat-error>
+          <mat-error *ngIf="userPassword1.hasError('minlength')">
+             <strong>passsword is too short</strong>
+          </mat-error>
+        </div><br>
+
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Enter User name" required #userName1="ngModel"
+     id="userName" name="userName" [(ngModel)]="userName">
+  </mat-form-field>
+  <div [hidden]="userName1.valid || userName1.untouched" >
+      <mat-error *ngIf="userName1.hasError('required')">
+          <strong>User Name is required</strong>
+       </mat-error>
+      </div><br>
+
+
+
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Enter Mobile no" required #userMobileNo1="ngModel" maxlength="10"
+     id="userMobileNo" name="userMobileNo" [(ngModel)]="userMobileNo">
+     <mat-icon matSuffix>phone</mat-icon>
+  </mat-form-field>
+  <div [hidden]="userMobileNo1.valid || userMobileNo1.untouched" >
+      <mat-error *ngIf="userMobileNo1.hasError('required')">
+          <strong>Mobile No  is required</strong>
+       </mat-error>
+
+        </div><br>
+
+
+
+  <mat-form-field class="example-full-width">
+    <mat-select placeholder="Choose city" name="userCity" [(ngModel)]="userCity" id="userCity">
+      <mat-option *ngFor="let item of arrcity" [value]="item">
+        {{item}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field><br>
+
+
+
+
+  <h5>Choose Gender</h5>
+  <mat-radio-group class="example-radio-group" [(ngModel)]="userGender" name="userGender">
+    <mat-radio-button class="example-radio-button" *ngFor="let item of arrgender" [value]="item">
+      {{item}}
+    </mat-radio-button>
+  </mat-radio-group>
+
+<br>
+
+
+
+
+<mat-form-field class="example-full-width">
+  <textarea matInput placeholder="Enter Address" required #userAddress1="ngModel"
+   name="userAddress" id="userAddress" [(ngModel)]="userAddress"></textarea>
+</mat-form-field>
+<div [hidden]="userAddress1.valid || userAddress1.untouched" >
+    <mat-error *ngIf="userAddress1.hasError('required')">
+        <strong>Address is required</strong>
+     </mat-error>   </div><br>
+
+
+
+
+
+ <h4>Choose Photo</h4>
+<div class="form-group">
+  <input placeholder="Enter Image" type="file" (change)="onfileUploadChange($event)" class="form-control" >
+</div>
+
+
+  <div class="form-group">
+      <button  mat-raised-button color="primary" type="submit" [disabled]="!f.valid" (click)="onadduser()" class="form-control">Add</button>&nbsp;&nbsp;&nbsp;
+      <button  mat-raised-button color="warn" (click)="oncancel()" class="form-control">Cancel</button>
+  </div>
+
+
+
+</form>
+
+

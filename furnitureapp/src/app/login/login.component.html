@@ -1,0 +1,70 @@
+<body>
+    <form (ngSubmit)="onlogin" #f="ngForm">
+  <div class="container" style="margin-left:500px;margin-top:70px">
+    <div class="row">
+      <div class="col-md-5">
+        <h1 align="center">Welcome!!</h1>
+        <label class="label control-label">Email Id</label>
+        <div class="input-group">
+          <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+
+          <input name="email1" email
+          #emailId1="ngModel" name="email" required [(ngModel)]="userEmailId" type="email" class="form-control" placeholder="Email"><br><br>
+
+          <div [hidden]="emailId1.valid || emailId1.untouched" >
+              <div style="color:red" [hidden]="!emailId1.errors?.email" >
+              Email is invalid
+              </div>
+
+              <div  style="color: red" [hidden]="!emailId1.errors?.required" >
+                  Email is required
+                  </div>
+              </div>
+
+
+        </div>
+        <label class="label control-label">Password</label>
+        <div class="input-group">
+          <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+          <mat-icon style="color: white" matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          <input [type]="hide ? 'password' : 'text'" required minlength="8"  #password1="ngModel"  name="password1" required [(ngModel)]="userPassword" type="password" class="form-control" placeholder="Password"  title="Password must be 8 or more characters">
+
+          <br><br>
+
+
+          <div [hidden]="password1.valid || password1.untouched" >
+              <div  style="color: red" [hidden]="!password1.errors?.minlength" >
+                  password must be of 8 characters
+              </div>
+
+              <div  style="color: red" [hidden]="!password1.errors?.required">
+                  password is required
+                  </div>
+              </div>
+
+       </div>
+        <!-- make 2 col -->
+        <div class="row">
+          <div class="col-md-6">
+
+          </div>
+          <div class="col-md-6">
+            <a routerLink="forgetpassword"><p class="text-right">Forget Password</p></a>
+          </div>
+        </div>
+
+        <!-- close -->
+
+
+    <button style="background-color: rgba(0, 0, 0, 0.2)" mat-raised-button color="primary" type="submit" (click)="onlogin()" [disabled]="!f.valid" class="form-control">
+      <h4 style="color: white">Log In</h4></button>&nbsp;&nbsp;&nbsp;
+
+        <a routerLink="signup"><p class="text-center">Not a member yet?Sign Up</p></a>
+      </div>
+    </div>
+
+  </div>
+  </form>
+
+
+</body>

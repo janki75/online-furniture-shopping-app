@@ -1,0 +1,89 @@
+<div class="creditCardForm">
+    <div class="heading">
+        <h1>Confirm Purchase</h1>
+    </div>
+    <div class="payment">
+        <form (ngSubmit)="onclick" #f="ngForm">
+            <div class="form-group owner">
+                <label for="owner">Owner</label>
+                <input #owner1="ngModel" name="owner" required [(ngModel)]="owner" required type="text" class="form-control" id="owner">
+
+                <div [hidden]="owner1.valid || owner1.untouched" >
+                  <div style="color:red;margin-top: 10px" [hidden]="!owner1.errors?.required" >
+                  owner name is required
+                  </div>
+                  </div>
+
+                </div>
+
+
+
+            <div class="form-group CVV">
+                <label for="cvv">CVV</label>
+                <input maxlength="3" #cvv1="ngModel" name="cvv" required [(ngModel)]="cvv" required type="password" class="form-control" id="cvv">
+            </div>
+            <div [hidden]="cvv1.valid || cvv1.untouched" >
+              <div style="color:red;margin-left:390px" [hidden]="!cvv1.errors?.required" >
+              cvv is required
+              </div>
+              </div>
+
+
+
+
+
+
+
+
+            <div class="form-group" id="card-number-field">
+                <label for="cardNumber">Card Number</label>
+                <input #cardNumber1="ngModel" name="cardNumber" required [(ngModel)]="cardNumber" required appCreditcard type="text" class="form-control" id="cardNumber">
+                <div [hidden]="cardNumber1.valid || cardNumber1.untouched" >
+                  <div style="color:red" [hidden]="!cardNumber1.errors?.required" >
+                  card number is required
+                  </div>
+                  </div>
+
+              </div>
+
+
+
+
+
+
+            <div class="form-group" id="expiration-date">
+                <label>Expiration Date</label>
+                <select>
+                    <option value="01">January</option>
+                    <option value="02">February </option>
+                    <option value="03">March</option>
+                    <option value="04">April</option>
+                    <option value="05">May</option>
+                    <option value="06">June</option>
+                    <option value="07">July</option>
+                    <option value="08">August</option>
+                    <option value="09">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                </select>
+                <select>
+                    <option value="19"> 2019</option>
+                    <option value="20"> 2020</option>
+                    <option value="21"> 2021</option>
+                    <option value="22"> 2022</option>
+                    <option value="23"> 2023</option>
+                    <option value="24"> 2024</option>
+                </select>
+            </div>
+            <div class="form-group" id="credit_cards">
+                <img height=150px width=320px src="http://localhost:3000/images/furniture_images/payment.jpg" id="visa">
+
+            </div>
+            <div class="form-group" id="pay-now">
+                <button [disabled]="!f.valid"  type="submit" class="btn btn-default" id="confirm-purchase" (click)="onclick()">Confirm</button>
+            </div>
+        </form>
+    </div>
+</div>
+

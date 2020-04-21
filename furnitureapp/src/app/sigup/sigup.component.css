@@ -1,0 +1,110 @@
+*
+{
+  margin: 0px;
+  padding:2px;
+}
+body
+{
+ padding: 0;
+ margin: 0;
+ height:100%;
+ width:100%;
+ background-attachment: fixed;
+  background: url(http://localhost:3000/images/furniture_images/su.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: new time roman;
+   overflow-x:hidden;
+
+
+}
+h1
+{
+  font-size: 20px;
+  color:white;
+  margin-top:30px;
+  margin-bottom: 60px;
+}
+.col-md-5
+{
+  background: rgba(0, 0, 0, 0.8);
+  margin-top: 10px;
+}
+.label
+{
+  font-size: 20px;
+  font-weight: normal;
+}
+.input-group
+{
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.input-group-addon
+{
+  background: transparent;
+  border-radius: 0px;
+  border: 0px;
+  border-bottom: 0px solid gray;
+  font-size: 18px;
+  color: gray;
+}
+.city
+{
+  background-color:  rgba(0, 0, 0, 0.8);
+  border-bottom: 1px solid gray;
+}
+.usertype
+{
+  background-color:  rgba(0, 0, 0, 0.8);
+  border-bottom: 1px solid gray;
+}
+.form-control
+{
+  background: transparent;
+  border-radius: 0px;
+  border: 0px;
+  border-bottom: 1px solid gray;
+  padding: -12px;
+  color:white;
+  font-size:21px;
+}
+.input [type="checkbox"]
+{
+  height:15px;
+  width:15px;
+}
+input[type=radio],
+input.radio {
+  float: left;
+  clear: none;
+  margin: 2px 0 0 2px;
+}small
+{
+  font-size:18px;
+  color:white;
+}
+p
+{
+  font-size:18px;
+  color:white;
+}
+.btn-default
+{
+  border-radius: 0px;
+  width:457px;
+  font-size:20px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+
+}
+button {
+  appearance: button;
+  -moz-appearance: button;
+  -webkit-appearance: button;
+  text-decoration: none;
+  font: menu;
+  color: ButtonText;
+  display: inline-block;
+  padding: 2px 8px;
+}

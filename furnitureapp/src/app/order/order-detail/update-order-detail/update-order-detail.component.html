@@ -1,0 +1,32 @@
+<h1 align="center">Update Order Detail</h1>
+
+<form style="margin-top: 50px;margin-left:440px" class="example-form" align="center">
+    <mat-form-field class="example-full-width" >
+      <input [readonly]="true" matInput placeholder="Furniture Name" name="fkFurnitureName"  [(ngModel)]="fkFurnitureName">
+    </mat-form-field><br>
+
+    <mat-form-field class="example-full-width" >
+        <input [readonly]="true" matInput placeholder="Furniture Price" name="fkFurniturePrice" [(ngModel)]="fkFurniturePrice">
+      </mat-form-field><br>
+
+
+      <mat-form-field class="example-full-width">
+      <mat-select (selectionChange)="onselectionchange()" placeholder="Furniture Quantity" [(ngModel)]="orderFurnitureQty" name="orderFurnitureQty">
+          <mat-option *ngFor="let item of arrqty" [value]="item">
+            {{item}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field><br>
+
+      <mat-form-field class="example-full-width" >
+          <input [readonly]="true" matInput placeholder="Furniture Total price" name="orderDetailPrice" [(ngModel)]="orderDetailPrice">
+        </mat-form-field><br>
+
+        <button mat-raised-button color="primary" (click)="onupdate()" >Update
+            <mat-icon>save_alt</mat-icon>
+          </button>&nbsp;&nbsp;&nbsp;
+          <button mat-raised-button color="warn" (click)="oncancel()" >Cancel
+            <mat-icon>cancel</mat-icon>
+          </button>
+
+  </form>

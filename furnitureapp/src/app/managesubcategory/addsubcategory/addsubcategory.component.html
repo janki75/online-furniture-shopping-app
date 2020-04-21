@@ -1,0 +1,35 @@
+<h1 align="center">Add SubCategory</h1>
+<form style="margin-top: 50px" (ngSubmit)="addForm(f)" #f="ngForm"
+class="example-form" align="center">
+  <mat-form-field class="example-full-width">
+    <input [(ngModel)]="subCatName"
+    required
+    id="subCatName"
+     #subCatName1="ngModel"
+    matInput placeholder="SubCategory Name" name="subCatName">
+  </mat-form-field>
+  <div [hidden]="subCatName1.valid || subCatName1.untouched" >
+      <div [hidden]="!subCatName1.errors?.required" class="alert alert-danger">
+         SubCategory Name is required.
+          </div>
+        </div>
+  <br>
+
+
+
+  <mat-form-field class="example-full-width">
+      <mat-select placeholder="Category Name" name="sel" [(ngModel)]="fkCategoryId">
+          <mat-option *ngFor="let item of arrcat" [value]="item.categoryId">
+            {{item.categoryName}}
+          </mat-option>
+        </mat-select> </mat-form-field>
+
+
+
+
+  <div class="form-group">
+    <button mat-raised-button color="primary" type="submit" (click)="onadd()" [disabled]="!f.valid" class="form-control">Add</button>&nbsp;&nbsp;&nbsp;
+    <button mat-raised-button color="warn" (click)="oncancel()" class="form-control">Cancel</button>
+</div>
+
+</form>

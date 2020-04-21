@@ -1,0 +1,77 @@
+<h1 align="center"><u><b>Update Furniture</b></u></h1>
+
+<form class="example-form"  style="margin-left:550px">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Furniture Name" name="furnitureName" [(ngModel)]="furnitureName">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Furniture Price" name="furniturePrice" [(ngModel)]="furniturePrice">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+          <input matInput placeholder="furniture Brand" name="furnitureBrand" [(ngModel)]="furnitureBrand">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Furniture Size" name="furnitureSize" [(ngModel)]="furnitureSize">
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+              <mat-select placeholder="Category Name" (selectionChange)="onSubCatChange()" name="categoryName" [(ngModel)]="fkCategoryId">
+                  <mat-option *ngFor="let item of arrcat" [value]="item.categoryId">
+                    {{item.categoryName}}
+                  </mat-option>
+
+                </mat-select> </mat-form-field>
+                <label>Available on Rent?</label><br>
+                      <mat-radio-group class="example-radio-group" [(ngModel)]="rentFlag" name="RentFlag">
+                        <mat-radio-button class="example-radio-button" *ngFor="let item of arroptions" [value]="item.value">
+                          {{item.label}}
+                        </mat-radio-button>
+                      </mat-radio-group>
+
+
+                      <div *ngIf="rentFlag">
+                      <mat-form-field class="example-full-width" >
+                        <textarea matInput placeholder="Enter Rent Description" required #rentDescription1="ngModel"
+                         name="rentDescription1" id="rentDescription1" [(ngModel)]="rentDescription"></textarea>
+                      </mat-form-field>
+                    </div>
+
+                    <div *ngIf="rentFlag">
+                      <mat-form-field class="example-full-width" >
+                        <textarea matInput placeholder="Enter Rent Amount" required #rentAmount1="ngModel"
+                         name="rentAmount1" id="rentAmount1" [(ngModel)]="rentAmount"></textarea>
+                      </mat-form-field>
+                    </div>
+
+                    <div *ngIf="rentFlag">
+                      <mat-form-field class="example-full-width" >
+                        <textarea matInput placeholder="Enter Furniture Description" required #furnitureDescription1="ngModel"
+                         name="furnitureDescriptiont1" id="furnitureDescriptiont1" [(ngModel)]="furnitureDescription"></textarea>
+                      </mat-form-field>
+                    </div>
+
+                    <mat-form-field class="example-full-width">
+                      <mat-select  placeholder="Furniture Rating" name="selec" [(ngModel)]="furnitureRating">
+                          <mat-option *ngFor="let item of arrrating" [value]="item.value">
+                            {{item.label}}
+                          </mat-option>
+                        </mat-select> </mat-form-field>
+
+                        <mat-form-field class="example-full-width">
+                          <mat-select placeholder="Sub Category Name" name="sele" [(ngModel)]="fkSubCatId">
+                              <mat-option *ngFor="let item of arrsubcat" [value]="item.subCatId">
+                                {{item.subCatName}}
+                              </mat-option>
+                            </mat-select> </mat-form-field>
+
+                <div class="form-group">
+                    <img height="150" width="190" src="http://localhost:3000/images/furniture_images/{{furnitureImg}}" alt="image loading...">
+                <h4>Choose Image</h4><br><input class="form-control" name="imageUpdate" placeholder="Enter Image" type="file" (change)="onChange($event)" >
+                  </div>
+
+                &nbsp;&nbsp;&nbsp;
+                    <div class="form-group">
+                        <button mat-raised-button color="primary" (click)="onupdate()" class="form-control">Update <mat-icon>save_alt</mat-icon></button>&nbsp;&nbsp;&nbsp;
+                        <button mat-raised-button color="warn" (click)="oncancel()" class="form-control">Cancel<mat-icon>cancel</mat-icon></button>
+                    </div>
+    </form>
+

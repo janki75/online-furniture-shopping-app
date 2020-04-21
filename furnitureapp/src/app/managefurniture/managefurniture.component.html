@@ -1,0 +1,93 @@
+<h1 align="center">Furniture Management</h1>
+<div>
+  <button mat-raised-button color="primary" (click)="onsale()">Sale</button>&nbsp;&nbsp;
+  <button mat-raised-button color="primary" (click)="onrent()" >Rent</button>&nbsp;&nbsp;
+  <button mat-raised-button color="primary" (click)="onallfurnitures()" >All</button>
+</div>
+<div align="end">
+    <button mat-raised-button color="primary" (click)="onadd()" >Add Furniture<mat-icon>add</mat-icon></button>
+</div>
+
+<mat-form-field>
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+</mat-form-field>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort multiTemplateDataRows>
+
+
+  <ng-container matColumnDef="action1">
+    <th mat-header-cell *matHeaderCellDef> DELETE </th>
+    <td mat-cell *matCellDef="let element">  <mat-checkbox (change)="checkChange(element)" name="c1"></mat-checkbox> </td>
+
+
+  </ng-container>
+
+  <ng-container matColumnDef="furnitureName">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Furniture Name</th>
+    <td mat-cell *matCellDef="let element"> {{element.furnitureName}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="furnitureBrand">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Brand</th>
+      <td mat-cell *matCellDef="let element">{{element.furnitureBrand}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="categoryName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Category</th>
+        <td mat-cell *matCellDef="let element">{{element.categoryName}} </td>
+      </ng-container>
+
+
+  <ng-container matColumnDef="furniturePrice">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Price</th>
+    <td mat-cell *matCellDef="let element">{{element.furniturePrice|currency:'INR'}} </td>
+  </ng-container>
+    <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef> Update &nbsp;&nbsp;&nbsp;Delete   </th>
+
+    <td mat-cell *matCellDef="let element">
+
+      <button>
+          <mat-icon (click)="onupdate(element) ">create</mat-icon></button>&nbsp;&nbsp;&nbsp;
+          <button>    <mat-icon  (click)="onsingledelete(element) ">delete</mat-icon></button>
+       </td>
+
+  </ng-container>
+  <ng-container matColumnDef="expandedDetail" (RowClick)="onclick()">
+    <td  mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length">
+      <div class="example-element-detail"
+           [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'" style="overflow: hidden">
+           <div class="example-element-furnitureImg">
+              <img height="150" width="190" src="http://localhost:3000/images/furniture_images/{{element.furnitureImg}}" alt="image loading...">
+           </div> <br>
+        <div style="margin-top: 10px;margin-left:20px" class="example-element-furnitureSize" >&nbsp; Furniture Size:&nbsp;{{element.furnitureSize}}
+          <div >
+           &nbsp; Furniture Description:  <h5  *ngFor="let item of splitdescription">
+              <mat-icon>play_arrow</mat-icon>
+              {{item}}</h5>
+
+            </div>
+
+      </div>
+
+    <br><br>
+
+      </div>
+    </td>
+  </ng-container>
+
+
+
+  <tr  mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let element; columns: displayedColumns;"
+      class="example-element-row"
+      [class.example-expanded-row]="expandedElement === element"
+      (click)="expandedElement =expandedElement=== element ? null : element" class="pointer">
+  </tr>
+  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+
+</table>
+<mat-paginator [pageSizeOptions]="[5,10,dataSource.data.length]"></mat-paginator>
+
+<button mat-raised-button color="warn" (click)="deleteAll()">DeleteAll<mat-icon>delete</mat-icon></button>

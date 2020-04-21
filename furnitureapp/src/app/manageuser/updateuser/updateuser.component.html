@@ -1,0 +1,92 @@
+<h1 align="center"><u><b>Edit User Detail</b></u></h1>
+
+<form class="example-form" style="margin-left:470px" >
+    <img style="margin-left:90px" height="150" width="190" src="http://localhost:3000/images/user_images/{{userPhoto}}" alt="image loading...">
+  <mat-form-field class="example-full-width">
+    <input  required email matInput placeholder="Enter Email Id" [readonly]="true"
+     id="userEmailId" name="userEmailId" [(ngModel)]="userEmailId">
+  </mat-form-field>
+<br>
+
+
+
+
+
+
+
+
+   <mat-form-field class="example-full-width">
+    <input matInput placeholder="Enter User name"
+     id="userName" name="userName" [(ngModel)]="userName">
+  </mat-form-field><br>
+
+
+
+
+  <mat-form-field class="example-full-width">
+    <input maxlength="10" matInput placeholder="Enter Mobile no"
+     id="userMobileNo" name="userMobileNo" [(ngModel)]="userMobileNo">
+     <mat-icon matSuffix>phone</mat-icon>
+  </mat-form-field><br>
+
+
+
+
+  <mat-form-field class="example-full-width">
+      <mat-select [(ngModel)]="userCity" placeholder="Choose city" name="userCity" id="userCity">
+        <mat-option *ngFor="let item of arrcity" [value]="item">
+          {{item}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field><br>
+
+
+
+
+
+
+
+  <mat-radio-group placeholder="Gender" class="example-radio-group" [(ngModel)]="userGender" name="userGender">
+    <mat-radio-button class="example-radio-button" *ngFor="let item of arrgender" [value]="item">
+      {{item}}
+    </mat-radio-button>
+  </mat-radio-group>
+
+<br>
+
+
+
+
+<mat-form-field class="example-full-width">
+  <mat-select [(ngModel)]="userType" placeholder="Update User Type" name="userType" id="userType">
+    <mat-option *ngFor="let item of arrtype" [value]="item">
+      {{item}}
+    </mat-option>
+  </mat-select>
+</mat-form-field><br>
+
+
+
+<mat-form-field class="example-full-width">
+  <textarea matInput placeholder="Enter Address"
+   name="userAddress" id="userAddress" [(ngModel)]="userAddress"></textarea>
+</mat-form-field>
+<br>
+
+<h4>Choose New Photo</h4>
+<div class="form-group">
+  <input placeholder="Enter Image" type="file" (change)="onfileUploadChange($event)" class="form-control" >
+</div>
+<br>
+
+
+  <div class="form-group">
+      <button  mat-raised-button color="primary"(click)="onupdateuser()" class="form-control">Update<mat-icon>save_alt</mat-icon></button>&nbsp;&nbsp;&nbsp;
+      <button  mat-raised-button color="warn" (click)="oncancel()" class="form-control">Cancel<mat-icon>cancel</mat-icon></button>
+  </div>
+
+
+
+</form>
+
+

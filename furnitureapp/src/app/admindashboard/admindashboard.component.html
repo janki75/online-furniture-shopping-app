@@ -1,0 +1,78 @@
+<div class="grid-container">
+  <h1 class="mat-h1">Dashboard</h1>
+  <mat-grid-list cols="2" rowHeight="350px">
+    <mat-grid-tile [colspan]="2" [rowspan]="1">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+           <h4 style="margin-left: 450px">Today's Order</h4>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div>
+            <!-- Card Content Here -->
+ <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+      <ng-container matColumnDef="orderTotalPrice" >
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Order Total Price </th>
+      <td mat-cell *matCellDef="let element"> {{element.orderTotalPrice}} </td>
+    </ng-container>
+    <ng-container matColumnDef="orderTotalQty">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Order Quantity </th>
+      <td mat-cell *matCellDef="let element"> {{element.orderTotalQty}} </td>
+    </ng-container>
+    <ng-container matColumnDef="userName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> User's Name</th>
+      <td mat-cell *matCellDef="let element"> {{element.userName}} </td>
+    </ng-container>
+    <ng-container matColumnDef="orderDate">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Order Date</th>
+      <td mat-cell *matCellDef="let element"> {{element.orderDate|date:"dd/MM/yyyy"}}</td>
+    </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+
+
+  <mat-grid-list cols="2" rowHeight="350px">
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-card  style="height: 1000px;" class="dashboard-card">
+          <mat-card-header>
+            <mat-card-title>
+             <h5 style="margin-left: 200px;margin-top: -20px;">Top 5 Selling Product</h5>
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="dashboard-card-content">
+            <div>
+              <!-- Card Content Here -->
+   <table mat-table [dataSource]="dataSource1" class="mat-elevation-z8">
+        <ng-container matColumnDef="fkFurnitureName" >
+        <th mat-header-cell *matHeaderCellDef>Furniture Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.fkFurnitureName}} </td>
+      </ng-container>
+      <ng-container matColumnDef="fkFurniturePrice">
+        <th mat-header-cell *matHeaderCellDef> Furniture Price </th>
+        <td mat-cell *matCellDef="let element"> {{element.fkFurniturePrice}} </td>
+      </ng-container>
+
+  <ng-container matColumnDef="furnitureImg">
+        <th mat-header-cell *matHeaderCellDef> Image </th>
+        <td mat-cell *matCellDef="let element">
+            <img height="50" width="50" src="http://localhost:3000/images/furniture_images/{{element.furnitureImg}}" alt="image loading...">
+           </td>
+      </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns1"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns1;"></tr>
+    </table>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+</div>

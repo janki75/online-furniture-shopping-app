@@ -1,0 +1,41 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    style="padding-right: 0;padding-left: 0;position: fixed;"
+    class="sidenav"
+    fixedInViewport="true"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="!(isHandset$ | async)">
+    <div class="row" style="padding-left: 10px;">
+    <mat-toolbar color="primary">
+      Menu
+
+    </mat-toolbar>
+    <mat-nav-list>
+
+      <a mat-list-item routerLink="../adminmenu">Home</a>
+      <a mat-list-item routerLink="managecategory">Manage Category</a>
+
+      <a mat-list-item routerLink="managefurniture">Manage Furniture</a>
+      <a mat-list-item routerLink="manageuser">Manage User</a>
+      <a mat-list-item routerLink="order">Manage Order</a>
+      <a mat-list-item routerLink="advertise">Manage Advertise</a>
+      <a mat-list-item routerLink="managesubcategory">Manage Subcategory</a>
+
+      <a (click)="onlogout()" mat-list-item routerLink="logout">Log out</a>
+
+
+    </mat-nav-list>
+  </div>
+  </mat-sidenav >
+  <mat-sidenav-content>
+    <mat-toolbar>
+
+      <span> <img src="http://localhost:3000/images/furniture_images/logo1.jpg" height="50" width="150">
+        </span>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

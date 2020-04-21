@@ -1,0 +1,9 @@
+.example-card {
+  margin-left: 350px;
+  max-width: 400px;
+}
+
+.example-header-image {
+  background-image: url("http://localhost:3000/images/furniture_images/{{furnitureImg}}");
+  background-size: cover;
+}

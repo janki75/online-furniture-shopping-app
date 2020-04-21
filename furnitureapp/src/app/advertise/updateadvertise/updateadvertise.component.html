@@ -1,0 +1,55 @@
+<h1 align="center"> Update Advertisement</h1>
+<form style="margin-left: 500px" class="example-form">
+    <mat-form-field class="example-full-width">
+    <input matInput placeholder="Enter Furniture Advertise Amount" name="advAmount" [(ngModel)]="furnitureAdvAmount">
+  </mat-form-field>
+<br>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Enter Furniture Used Time" name="advUsedTime" [(ngModel)]="furnitureAdvUsedTime">
+  </mat-form-field>
+  <br>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Enter Furniture Size" name="advSize" [(ngModel)]="furnitureAdvSize">
+  </mat-form-field>
+  <br>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Enter Furniture Brand" name="advBrand" [(ngModel)]="furnitureAdvBrand">
+  </mat-form-field>
+  <br>
+
+  <img height="150" width="190" src="http://localhost:3000/images/advertise_images/{{furnitureAdvImg}}" alt="image loading...">
+    <h4>Choose New Photo</h4>
+<div class="form-group">
+  <input placeholder="Enter Image" type="file" (change)="onChange($event)" class="form-control" >
+</div>
+<br>
+
+
+<mat-form-field class="example-full-width">
+    <mat-select placeholder="Furniture Condition" name="sele" [(ngModel)]="furnitureAdvCondition">
+        <mat-option [value]="item" *ngFor="let item of arrfurniturecondition">
+          {{item}}
+        </mat-option>
+      </mat-select> </mat-form-field><br>
+
+  <br>
+
+
+
+
+<mat-form-field>
+  <mat-select placeholder="Furniture Category" name="sel" [(ngModel)]="advFkCategoryId">
+    <mat-option *ngFor="let item of arrcat" [value]="item.categoryId">
+      {{ item.categoryName }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<br>
+<div class="form-group">
+    <button  mat-raised-button color="primary" (click)="onUpdate()" class="form-control">Update<mat-icon>save_alt</mat-icon></button>&nbsp;&nbsp;&nbsp;
+    <button  mat-raised-button color="warn" (click)="oncancel()" class="form-control">Cancel<mat-icon>cancel</mat-icon></button>
+  </div>
+
+
+</form>
+

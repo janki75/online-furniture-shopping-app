@@ -1,0 +1,49 @@
+<div class="top_bg">
+    <div class="container">
+      <div class="header_top-sec">
+
+        <div class="top_left">
+          <ul>
+            <li class="top_link">Email: info@shilproj.co.in
+            </li>|
+            <li class="top_link"><a (click)="onclickmyac()">My Account</a></li>|
+            <li class="top_link"><a (click)="onclickcontact()">Contact Us</a></li>
+          </ul>
+                </div>
+          <div class="clearfix"> </div>
+      </div>
+    </div>
+  </div>
+  <div class="header_top">
+     <div class="container">
+       <div class="logo">
+         <a><img style="margin-top:-20px" src="http://localhost:3000/images/furniture_images/logo1.jpg" alt=""/></a>
+       </div>
+       <div class="header_right">
+         <div class="login">
+
+
+         </div>
+         <div class="cart box_1">
+  <button (click)="onclickcart()" mat-button><mat-icon>shopping_cart</mat-icon>Show Cart</button>
+
+  <button (click)="onlogout()" mat-button><mat-icon>logout</mat-icon>Log Out</button>
+          <div class="clearfix"> </div>
+         </div>
+       </div>
+        <div class="clearfix"></div>
+     </div>
+  </div>
+
+   <div class="mega_nav">
+     <div class="container">
+       <div class="menu_sec">
+
+        <button (click)="onclicksubcat(item.categoryId)" mat-button [matMenuTriggerFor]="menu" *ngFor="let item of arrcat">{{item.categoryName}}</button>
+        <mat-menu #menu="matMenu">
+          <button (click)="onclick(item.subCatId)" *ngFor="let item of arrsubcat" mat-menu-item>{{item.subCatName}}</button>
+        </mat-menu>
+         <div class="clearfix"></div>
+       </div>
+      </div>
+  </div>

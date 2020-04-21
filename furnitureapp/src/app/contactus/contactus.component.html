@@ -1,0 +1,83 @@
+
+<div class="contact">
+        <div class="container">
+            <div class="contact-head">
+                 <h2>CONTACT</h2>
+                 <form (ngSubmit)="onclick" #f="ngForm">
+                     <div class="col-md-6 contact-left">
+                         <input #name11="ngModel" name="name1" required [(ngModel)]="name1" required type="text" placeholder="Name" required/>
+                         <div [hidden]="name11.valid || name11.untouched" >
+                            <div style="color:red" [hidden]="!name11.errors?.required" >
+                            Name is required
+                            </div>
+                            </div>
+
+
+
+
+
+
+                           <input #email1="ngModel" name="email" required [(ngModel)]="email" required type="text" placeholder="E-mail" required/>
+                           <div [hidden]="email1.valid || email1.untouched" >
+                              <div style="color:red" [hidden]="!email1.errors?.required" >
+                              Email id is required
+                              </div>
+                              </div>
+
+
+
+ <input maxlength="10" #phone1="ngModel" name="phone" required [(ngModel)]="phone" required type="text" placeholder="Phone" required/>
+ <div [hidden]="phone1.valid || phone1.untouched" >
+    <div style="color:red" [hidden]="!phone1.errors?.required" >
+  phone no is required
+    </div>
+    </div>
+
+
+
+
+
+
+                    </div>
+                    <div class="col-md-6 contact-right">
+                 <textarea #msg1="ngModel" name="msg" required [(ngModel)]="msg" required placeholder="Message"></textarea>
+                 <div [hidden]="msg1.valid || msg1.untouched" >
+                    <div style="color:red" [hidden]="!msg1.errors?.required" >
+                  Message is required
+                    </div>
+                    </div>
+
+                            <input [disabled]="!f.valid" type="submit" (click)="onClick()" value="SEND"/>
+                    </div>
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+            <div class="address">
+                <h3>Our Location</h3>
+                <div class="locations">
+                     <ul>
+                        <li><span></span></li>
+                        <li>
+                            <div class="address-info">
+                                <h4>Kalol,Gandhinagar</h4>
+                                <p>76,Tulip Chalets,</p>
+                                <p>opp.Surmya II,Fancharda Kalol Road</p>
+                                <p>Mobile No:+91 94099 97599</p>
+                                <p>Mail: <a href="www.opulence.in.net">www.opulence.in.net</a></p>
+                                <br>
+
+                            </div>
+                        </li>
+                     </ul>
+
+                </div>
+            </div>
+            <div class="contact-map">
+                <iframe iframeclass="etalage_thumb_image" height="50px" width="50"  src="http://localhost:3000/images/furniture_images/mappp1.png" class="img-responsive"></iframe>
+
+
+            </div>
+        </div>
+        <h6 style="margin-left: 120px">  Copyright © 2019 opulence furniture Store All rights reserved</h6>
+   </div>
+   <app-footer></app-footer>

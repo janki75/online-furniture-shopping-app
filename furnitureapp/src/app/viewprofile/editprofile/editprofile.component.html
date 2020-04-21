@@ -1,0 +1,87 @@
+
+<app-header></app-header>
+<h1 style="margin-left: 617px"><u> Edit Profile</u></h1><br>
+<form style="margin-left: 500px" class="example-form">
+    <div>
+        <img style="margin-left:150px;" height=150px width="150px" src="http://localhost:3000/images/user_images/{{userPhoto}}" class="img-responsive" alt="...image loading">
+      </div>
+
+  <mat-form-field  class="example-full-width">
+  <input [disabled]=flag1 matInput placeholder="Email Id" matInput  name="userEmailId" [(ngModel)]="userEmailId">
+</mat-form-field>
+<br>
+
+
+
+
+
+<mat-form-field class="example-full-width">
+  <input matInput placeholder="User Name" matInput name="userName" [(ngModel)]="userName">
+</mat-form-field>
+<br>
+
+
+
+
+
+<mat-form-field class="example-full-width">
+  <input matInput placeholder="Mobile No" matInput name="userMobileNo" [(ngModel)]="userMobileNo">
+</mat-form-field>
+<br>
+
+
+
+
+
+<mat-form-field>
+  <mat-select matInput placeholder="City" name="userCity" [(ngModel)]="userCity">
+    <mat-option *ngFor="let city of arrcity" [value]="city" >
+      {{ city }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<br>
+
+
+
+
+
+<mat-radio-group matInput placeholder="Gender" class="example-radio-group" name="userGender" [(ngModel)]="userGender">
+  <mat-radio-button class="example-radio-button"  *ngFor="let gender of arrgender" [value]="gender">
+    {{gender}}
+  </mat-radio-button>
+</mat-radio-group>
+<br>
+
+
+
+
+<mat-form-field class="example-full-width">
+  <textarea matInput matInput placeholder="Address"  name="userAddress" [(ngModel)]="userAddress"></textarea>
+</mat-form-field>
+
+<br>
+
+
+
+
+
+<div class="form-group">
+  <label>Choose Image</label>
+    <input class="form-control" type="file" (change)="onChange($event)" class="form-control" >
+  </div>
+  <br>
+
+
+  <div class="form-group">
+
+
+    <button style="margin-left: 90px"  mat-raised-button color="primary"(click)="onUpdate()" class="form-control">Update<mat-icon>save_alt</mat-icon></button>&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;   <button  mat-raised-button color="warn" (click)="oncancel()" class="form-control">Cancel<mat-icon>cancel</mat-icon></button>
+  </div>
+
+
+
+</form>
+
+<app-footer></app-footer>

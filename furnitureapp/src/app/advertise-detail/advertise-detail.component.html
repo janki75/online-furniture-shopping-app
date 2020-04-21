@@ -1,0 +1,106 @@
+<div class="top_bg">
+    <div class="container">
+      <div class="header_top-sec">
+
+        <div class="top_left">
+          <ul>
+            <li class="top_link">Email: info@shilproj.co.in
+            </li>|
+            <li class="top_link"><a (click)="onclickmyac()">My Account</a></li>|
+            <li class="top_link"><a (click)="onclickcontact()">Contact Us</a></li>
+          </ul>
+                </div>
+          <div class="clearfix"> </div>
+      </div>
+    </div>
+  </div>
+  <div class="header_top">
+     <div class="container">
+       <div class="logo">
+         <a><img style="margin-top:-20px" src="http://localhost:3000/images/furniture_images/logo1.jpg" alt="..image loading"/></a>
+       </div>
+       <div class="header_right">
+         <div class="login">
+
+
+         </div>
+         <div class="cart box_1">
+  <button (click)="onclickcart()" mat-button><mat-icon>shopping_cart</mat-icon>Show Cart</button>
+
+  <button (click)="onlogout()" mat-button><mat-icon>logout</mat-icon>Log Out</button>
+          <div class="clearfix"> </div>
+         </div>
+       </div>
+        <div class="clearfix"></div>
+     </div>
+  </div>
+
+
+  <div class="single-sec">
+      <div class="container">
+              <!-- start content -->
+         <div class="col-md-9 ">
+             <div class="single_left">
+              <div class="grid images_3_of_2">
+                <ul>
+                 <li>
+
+                     <img style="height:300px;width: 354px;" class="etalage_thumb_image" src="http://localhost:3000/images/advertise_images/{{furnitureAdvImg}}" class="img-responsive" />
+                     <button style="margin-top:20px;margin-left: 20px;background-color:#D8D8D8" mat-raised-button  (click)="onback()" >Back<mat-icon>keyboard_backspace</mat-icon></button>
+
+                 </li>
+
+                </ul>
+                <div class="clearfix"></div>
+                 </div>
+             </div>
+             <div class="single-right">
+              <h3>{{furnitureName}}</h3>
+
+
+               <div class="cost">
+                <div class="prdt-cost">
+                  <ul><li>Sellling Price:</li>
+                    <li class="active">{{furnitureAdvAmount|currency:'INR'}}</li>
+                  </ul>
+                </div>
+
+                <div class="clearfix"></div>
+               </div>
+               <div class="item-list">
+                <ul>
+                  <li>Brand: {{furnitureAdvBrand}}</li>
+                  <li>Size:{{furnitureAdvSize}}</li>
+
+                </ul>
+               </div>
+               <div class="single-bottom1">
+               <h6 style="background-color: #D8D8D8">Details</h6><br>
+               <!-- <p class="prod-desc"> -->
+                <h5>Furniture's Used Time:{{furnitureAdvUsedTime}}</h5><br>
+                <h5>Furniture's Condition:{{furnitureAdvCondition}}</h5>
+                <h6 style="background-color: #D8D8D8">Seller's Detail</h6>
+                <h5>EmailId:{{advFkUserEmailId}}</h5><br>
+                <h5>Contact No:{{advFkUserMobileNo}}</h5>
+               <!-- </p> -->
+              </div>
+             </div>
+             <div class="clearfix"></div>
+
+           </div>
+
+       </div>
+            <div class="clearfix"></div>
+       </div>
+
+
+
+
+
+
+
+
+
+
+<br>
+<app-footer></app-footer>

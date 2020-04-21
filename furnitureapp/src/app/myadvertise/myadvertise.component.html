@@ -1,0 +1,36 @@
+
+ <hr style="height:1px;border:none;color:#333;background-color:#333;" />
+
+ <h2 align="center">Your Advertise</h2>
+ <hr style="height:1px;border:none;color:#333;background-color:#333;" />
+
+<div class="row">
+
+
+<div class="col-md-12">
+
+<mat-card style="float: right" class="example-card" *ngFor="let item of arradvertise" class="col-md-6 col-md-4">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image">
+      <img style="border-radius: 70%" mat-card-image src="http://localhost:3000/images/advertise_images/{{item.furnitureAdvImg}}">
+    </div>
+    <mat-card-title>&nbsp;&ngsp;&nbsp;&nbsp;&nbsp;Brand:-{{item.furnitureAdvBrand}}</mat-card-title>
+
+  </mat-card-header>
+  <img mat-card-image src="http://localhost:3000/images/advertise_images/{{item.furnitureAdvImg}}" alt="..image loading">
+  <mat-card-content>
+    <p>
+     Selling Price:-{{item.furnitureAdvAmount}}<br>
+     Used Time:-{{item.furnitureAdvUsedTime}}<br>
+     Size:-{{item.furnitureAdvSize}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button style="background-color:#F2F2F2" mat-button (click)="onDetail(item.furnitureAdvId)">Detail</button>
+    <button style="background-color:#F2F2F2" mat-button (click)="onSingleDelete(item)">Delete</button>
+
+  </mat-card-actions>
+</mat-card>
+</div>
+</div>
+<app-footer></app-footer>

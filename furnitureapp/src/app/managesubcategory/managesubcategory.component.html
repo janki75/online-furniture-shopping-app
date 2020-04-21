@@ -1,0 +1,45 @@
+<h1 align="center">Subcategory Management</h1>
+<div align="end">
+<button mat-raised-button color="primary" (click)="onadd()" >Add Subcategory<mat-icon>add</mat-icon></button>
+</div>
+<mat-form-field>
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+</mat-form-field>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+ <ng-container matColumnDef="action1">
+    <th mat-header-cell *matHeaderCellDef> DELETE </th>
+    <td mat-cell *matCellDef="let element">  <mat-checkbox (change)="onuserdeletecheckChange(element)" name="c1"></mat-checkbox> </td>
+  </ng-container>
+
+  <ng-container matColumnDef="subCatName">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Subcategory Name</th>
+    <td mat-cell *matCellDef="let element"> {{element.subCatName}} </td>
+  </ng-container>
+
+
+
+  <ng-container matColumnDef="fkCategoryId">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Category Name</th>
+      <td mat-cell *matCellDef="let element"> {{element.categoryName}} </td>
+    </ng-container>
+
+
+  <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef> Update&nbsp;&nbsp;&nbsp; Delete</th>
+
+    <td mat-cell *matCellDef="let element">
+
+      <button>
+          <mat-icon (click)="onupdate(element)">create</mat-icon></button>&nbsp;&nbsp;&nbsp;
+        <button>    <mat-icon (click)="onsingledelete(element)">delete</mat-icon>
+        </button>
+    </td>
+
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<mat-paginator [pageSizeOptions]="[5,10,20,dataSource.data.length]"></mat-paginator>
+<button mat-raised-button color="warn" (click)="deleteselectedUser()">DeleteAll<mat-icon>delete</mat-icon></button>

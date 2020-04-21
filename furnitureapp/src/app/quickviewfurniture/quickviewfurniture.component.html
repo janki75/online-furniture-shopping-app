@@ -1,0 +1,18 @@
+<app-header></app-header>
+<button mat-raised-button style="background-color: #D8D8D8;margin-left:1145px" (click)="onback()" >Back<mat-icon>keyboard_backspace</mat-icon></button>
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"><img src="http://localhost:3000/images/furniture_images/{{furnitureImg}}" class="img-responsive"></div>
+      <mat-card-title><b>{{furnitureName}}</b></mat-card-title>
+      <mat-card-subtitle><h4><b>Brand:</b>{{furnitureBrand}}</h4></mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="http://localhost:3000/images/furniture_images/{{furnitureImg}}" alt="image loading...">
+    <mat-card-content>
+        <h3><b>Price:</b>{{furniturePrice|currency:'INR'}}</h3>
+        <h3><b>Size:</b>{{furnitureSize}}</h3>
+
+    </mat-card-content>
+
+  </mat-card>
+
+<app-footer></app-footer>
